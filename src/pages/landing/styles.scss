@@ -1,0 +1,36 @@
+@import '../../assets/vars.scss';
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+.background-icon {
+  position: fixed;
+  top: -20vh;
+  left: -20vh;
+  font-size: 100vh;
+  z-index: -1;
+  transform: rotate(342deg);
+  opacity: 0.035;
+  pointer-events: none;
+  color: #599118;
+}
+
+.storage-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  @media all and (max-width: 800px) {
+    grid-template-columns: unset;
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
