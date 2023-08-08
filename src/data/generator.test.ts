@@ -1,6 +1,6 @@
 import { generateUsers } from './generator'
 
-describe('generateUsers', () => {
+describe('generateUsers()', () => {
   it('generates the specified amount of users', () => {
     const numUsers = 5
     expect(generateUsers(numUsers).length).toBe(numUsers)

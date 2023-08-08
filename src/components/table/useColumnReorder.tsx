@@ -46,6 +46,8 @@ export function useColumnReorder<T>(columns: Column<T>[]) {
       <button
         onClick={() => setEnabled((v) => !v)}
         className={isEnabled ? 'active' : undefined}
+        aria-pressed={isEnabled}
+        data-testid="reorder-toggle-button"
       >
         <ReorderIcon />
         <span>Reorder</span>
