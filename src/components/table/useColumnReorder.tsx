@@ -134,7 +134,12 @@ export function ReorderableColumn({
   )
 
   const updatePosition = useCallback((e: React.DragEvent) => {
-    setCurrPos(e.clientX - startPos.current)
+    // Prevent incorrect e.clientX in Firefox from causing the column header to fly offscreen
+    if (e.clientX === 0) {
+      setCurrPos(0)
+    } else {
+      setCurrPos(e.clientX - startPos.current)
+    }
   }, [])
 
   const endReorder = useCallback((e: React.MouseEvent) => {
@@ -200,7 +205,7 @@ export function ReorderableColumn({
       onDrop={onDrop}
       className={classNames}
       // @ts-ignore
-      style={currPos ? { '--posX': `${currPos}px` } : undefined}
+      style={currPos !== undefined ? { '--posX': `${currPos}px` } : undefined}
     >
       <div>
         {isReordering && <ReorderIcon className="reorder-icon" />}
